@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/header.css'
+
 class Header extends Component {
     state = {  }
     render() { 
@@ -10,13 +10,14 @@ class Header extends Component {
         }
         return ( 
             
-            <div className="Header">
+            <div className="header">
                 <div>
                     <h1>New List</h1>
                 </div>
                 <div>
-                    <button onClick={()=> onCreateNewItem(newObj)}>Add</button>
+                    <button className="addBtn" onClick={()=> onCreateNewItem(newObj)}>+</button>
                 </div>
+                
             </div>
          );
     }

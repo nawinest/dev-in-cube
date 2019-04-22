@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import './css/app.css'
+import './css/style.css'
 import CompleteSection from './components/CompleteSection';
 import List from './components/List'
 
@@ -35,6 +35,7 @@ class App extends Component {
       const list2 = [...lists, newObj]
       this.setState({
         list:list2
+        
       })
   }
 
@@ -84,7 +85,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header onCreateNewItem={this.onCreateNewItem} />
-        <CompleteSection onDeleteTask={this.onDeleteTask} onToggleListItem={this.onToggleListItem} data={finishedList} handleShow={this.handleShow} showComplete={!this.state.showComplete}/>
+        <CompleteSection onDeleteTask={this.onDeleteTask} onEditTask={this.onEditTask} onToggleListItem={this.onToggleListItem} data={finishedList} handleShow={this.handleShow} showComplete={!this.state.showComplete}/>
         <List onDeleteTask={this.onDeleteTask} data={unfinishList} onEditTask={this.onEditTask} onToggleListItem={this.onToggleListItem}/>
       </div>
     );

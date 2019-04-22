@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/completesection.css'
 import List from '../components/List'
 class CompleteSection extends Component {
     state = { 
@@ -10,6 +9,7 @@ class CompleteSection extends Component {
         
         const list = this.props.data
         const onDeleteTask = this.props.onDeleteTask
+        const onEditTask=this.props.onEditTask
         let isShow = ""
         let isShowText = ""
         
@@ -26,14 +26,14 @@ class CompleteSection extends Component {
             <div>
                 <div className="label-top">
                     <div>
-                        {`${list.length} complete` }
+                        <span>{`${list.length} complete` }</span>
                     </div>
-                    <div>
-                        <button onClick = {this.props.handleShow}>{isShowText}</button>
+                    <div className="right">
+                        <button className="show_btn" onClick = {this.props.handleShow}>{isShowText}</button>
                     </div>
                 </div>
                 <div className={isShow}>
-                    <List onDeleteTask={onDeleteTask} data={list} onToggleListItem={onToggleListItem}/>
+                    <List onDeleteTask={onDeleteTask} onEditTask={onEditTask} data={list} onToggleListItem={onToggleListItem}/>
                 </div>
             </div>
         );

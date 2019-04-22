@@ -1,0 +1,115 @@
+.container{
+    width:500px;
+    margin: 0 auto;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    border-bottom: solid 3px skyblue;
+    margin-bottom: 32px;
+}
+
+.header div{
+    flex-grow: 1;
+}
+
+.header div:nth-child(2){
+    text-align: right;
+}
+
+h1{
+    font-size: 3rem;
+}
+.addBtn{
+    padding:0.3em 0.5em;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    background: skyblue;
+    border-radius: 10px;
+    border:none;
+}
+
+.label-top{
+    display: flex;
+}
+
+.label-top div{
+    flex-grow: 1;
+}
+
+ul{
+    padding:0;
+}
+
+span{
+    font-weight: bold;
+    color:rgb(51, 178, 228);
+}
+
+li{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    list-style: none;
+}
+
+.list{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.task_content{
+    border: none;
+    padding :10px;
+    width: 100%;
+}
+
+.task_content:focus{
+    outline: none;
+    border-bottom: solid 2px skyblue;
+}
+
+.right{
+    text-align: right;
+    
+}
+.show_btn{
+    border:2px solid skyblue;
+    background:none;
+    border-radius: 10px;
+}
+
+.show_btn:focus{
+    outline: none;
+}
+
+.show_btn:hover{
+    background: skyblue;
+    color: white
+}
+
+.show{
+    display: block
+}
+
+.del_btn{
+    border: none;
+    font-weight: bolder;
+    font-size: 1.01em;
+}
+
+.notshow{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .container{
+        padding:20px;
+        width: 100%;
+    }
+  }

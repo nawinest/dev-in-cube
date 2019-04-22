@@ -13,10 +13,10 @@ class ListItem extends Component {
         const onDeleteTask = this.props.onDeleteTask
         return ( 
             <li>
-                <div>
+                <div className="list">
                     <input checked={this.props.data.isComplete} val={val} type="checkbox" onChange={onToggleListItem} />
-                    <input value={value} onChange={onEditTask} val={val}></input>
-                    <button onClick={()=> onDeleteTask(val)}> x </button>
+                    <input className="task_content" value={value} onChange={onEditTask} val={val}></input>
+                    <button className="del_btn" onClick={()=> onDeleteTask(val)}> x </button>
                 </div>
             </li>
          );
