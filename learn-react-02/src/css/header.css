@@ -1,0 +1,9 @@
+.Header{
+    display: flex;
+    align-items: center;
+    
+}
+
+.Header div{
+    margin-left: 2rem;
+}
