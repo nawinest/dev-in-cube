@@ -1,8 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
+## Deploy Online 
+https://todolist-react-f6476.firebaseapp.com/
 
 ### `npm start`
 
