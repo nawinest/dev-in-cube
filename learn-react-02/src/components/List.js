@@ -7,13 +7,13 @@ class List extends Component {
         const onDeleteTask = this.props.onDeleteTask
         const onEditTask = this.props.onEditTask
         const onToggleListItem = this.props.onToggleListItem
-        const listItem = list.map((currentList,index) => 
-                            <ListItem onDeleteTask={onDeleteTask} onEditTask={onEditTask} onToggleListItem={onToggleListItem} data={currentList} key={index} val={currentList.title}></ListItem>
-                        );
+        
         return (
             <div>
                 <ul>
-                    {listItem}
+                    {list.map((currentList,index) => 
+                            <ListItem onDeleteTask={onDeleteTask} onEditTask={onEditTask} onToggleListItem={onToggleListItem} data={currentList} key={index} val={currentList.title}></ListItem>
+                        )}
                 </ul>
             </div> 
         );
