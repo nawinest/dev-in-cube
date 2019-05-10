@@ -7,11 +7,18 @@ import {
   Stack,
   Button,
 } from 'grommet'
-import { FaShoppingBag } from 'react-icons/fa';
+import {connect} from 'react-redux'
 
 class ProductItem extends React.Component {
+  state={
+    id:''
+  }
+
+  componentDidMount(){
+   
+  }
   handleAddToCart = () => {
-    console.log('Add to cart')
+    this.props.addCartItems(this.props.id)
   }
   render() {
     const { name, description, image, price } = this.props
@@ -45,4 +52,13 @@ class ProductItem extends React.Component {
   }
 }
 
-export default ProductItem
+
+const mapStateToProps = (state) => ({
+  cart : state.cart
+})
+
+const mapDispatchToProp = (dispatch) => ({
+  addCartItems:dispatch.cart.addCartItems
+})
+
+export default connect(mapStateToProps, mapDispatchToProp)(ProductItem)

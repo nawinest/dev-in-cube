@@ -7,18 +7,21 @@ import {
   Stack,
   Button,
 } from 'grommet'
-import { Shop } from 'grommet-icons'
 import {connect} from 'react-redux'
 
 class ProductItem extends React.Component {
+  state={
+    id:''
+  }
+
+  componentDidMount(){
+   
+  }
   handleAddToCart = () => {
-    console.log('Add to cart')
-    const {addItem , name} = this.props
-    addItem(name)
+    this.props.addCartItems(this.props.id)
   }
   render() {
     const { name, description, image, price } = this.props
-   
     return (
       <Box
         direction="column"
@@ -42,7 +45,7 @@ class ProductItem extends React.Component {
           <Text textAlign="center">
             {description}
           </Text>
-          <Button primary pad="small" margin="small" icon={<Shop />} label="Add to cart" onClick={this.handleAddToCart}/>
+          <Button primary pad="small" margin="small" label="Add to cart" onClick={this.handleAddToCart}/>
         </Box>
       </Box>
     )
@@ -50,16 +53,12 @@ class ProductItem extends React.Component {
 }
 
 
-const mapStateToProps = state => {
-  console.log(state.count)
-  return {
-    cart : state.cart
-  }
-}
+const mapStateToProps = (state) => ({
+  cart : state.cart
+})
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addItem : dispatch.cart.addItem
-  }
-}
-export default connect(mapStateToProps , mapDispatchToProps )(ProductItem)
+const mapDispatchToProp = (dispatch) => ({
+  addCartItems:dispatch.cart.addCartItems
+})
+
+export default connect(mapStateToProps, mapDispatchToProp)(ProductItem)

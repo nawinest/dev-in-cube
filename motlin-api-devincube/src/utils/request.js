@@ -1,3 +1,5 @@
+
+
 import axios from 'axios'
 const KEY = 'motlin-token'
 const CLIENT_ID = 'TEbWI1G4ArII31nUVEADGzXUT5cWWE9G4LSSZREDxu'
@@ -18,11 +20,11 @@ instance.interceptors.request.use(async (config) => {
   let token = localStorage.getItem(KEY);
   if (token !== null) {
     token = JSON.parse(token)
-    if (token.expires*1000 < Date.now()) {
+    if (token.expires * 1000 < Date.now()) {
       token = null
     }
   }
-  if(token === null) {
+  if (token === null) {
     token = await implicitLogin()
     localStorage.setItem(KEY, JSON.stringify(token))
   }
@@ -33,3 +35,5 @@ instance.interceptors.request.use(async (config) => {
   return config;
 })
 export default instance
+
+

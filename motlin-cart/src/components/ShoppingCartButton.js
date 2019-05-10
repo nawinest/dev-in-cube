@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { DropButton, Box, Stack } from 'grommet';
-import { Shop } from 'grommet-icons'
-import {connect} from 'react-redux'
+import { DropButton, Box, Stack, Button } from 'grommet';
+import { FaShoppingBag } from 'react-icons/fa'
 import CartItemList from './CartItemList'
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 class ShoppingCartButton extends Component {
   render() {
-
-    // const {cartLenght}  = this.props.cart.cartLenght
     return (
       <DropButton
         dropAlign={{
@@ -14,8 +13,9 @@ class ShoppingCartButton extends Component {
           right: 'right'
         }}
         dropContent={
-          <Box>
+          <Box pad="small" width="200px">
             <CartItemList />
+            <Link to="/checkout"><Button pad="small" primary>Check Out</Button></Link>
           </Box>
         }
       >
@@ -23,14 +23,14 @@ class ShoppingCartButton extends Component {
           anchor="top-right"
         >
           <Box pad='xsmall'>
-            <Shop size="32px"/>
+            <FaShoppingBag size={32} />
           </Box>
           <Box
             background="accent-1"
-            pad={{horizontal: 'xsmall'}}
+            pad={{ horizontal: 'xsmall' }}
             round
           >
-            {0}
+           {0}
           </Box>
         </Stack>
       </DropButton>
@@ -38,8 +38,10 @@ class ShoppingCartButton extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  cart :state.cart
-})
+const mapStateToProps=(state)=>{
+  return {
+    cartItem : state.cart.cartItem
+  }
+}
 
-export default connect()(ShoppingCartButton)
+export default connect(mapStateToProps)(ShoppingCartButton)

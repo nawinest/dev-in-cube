@@ -12,8 +12,8 @@ class ProductList extends React.Component {
     this.fetchData()
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if(prevProps.search !== this.props.search){
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.search !== this.props.search) {
       this.searchProduct()
     }
   }
@@ -24,12 +24,14 @@ class ProductList extends React.Component {
       let image = 'https://via.placeholder.com/300x400.png';
       if (item.relationships.main_image) {
         const fileId = item.relationships.main_image.data.id
-        const file = res.data.included.main_images.find(function(el) {
+        const file = res.data.included.main_images.find(function (el) {
           return fileId === el.id;
         });
         image = file.link.href
       }
       return {
+        id: item.id,
+        type: item.type,
         name: item.name,
         description: item.description,
         image,
@@ -48,12 +50,14 @@ class ProductList extends React.Component {
       let image = 'https://via.placeholder.com/300x400.png';
       if (item.relationships.main_image) {
         const fileId = item.relationships.main_image.data.id
-        const file = res.data.included.main_images.find(function(el) {
+        const file = res.data.included.main_images.find(function (el) {
           return fileId === el.id;
         });
         image = file.link.href
       }
       return {
+        id: item.id,
+        type: item.type,
         name: item.name,
         description: item.description,
         image,
@@ -67,7 +71,6 @@ class ProductList extends React.Component {
 
   render() {
     const { data } = this.state
-    console.log(data)
     return (
       <Box
         direction="column"
@@ -86,7 +89,7 @@ class ProductList extends React.Component {
         >
           {
             data.map((product) => (
-              <ProductItem {...product}/>
+              <ProductItem key={product.id} {...product} />
             ))
           }
         </Box>

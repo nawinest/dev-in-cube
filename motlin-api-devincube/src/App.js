@@ -1,35 +1,27 @@
 import React, { Component } from 'react';
-import { Grommet, Box , TextInput } from 'grommet'
-import AppBar from './components/AppBar'
-import ProductList from './components/ProductList'
+import { Grommet, Box } from 'grommet'
 import './App.css';
-
+import ProductListPage from './pages/ProductListPage'
+import Checkout from './pages/Checkout'
+import AppBar from './components/AppBar'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 class App extends Component {
   state = {
-    query:''
+    query: ''
   }
-
-  
 
   render() {
     return (
-      <Grommet plain full>
-        <Box direction="column" fill>
-          <AppBar />
-          <Box
-            direction="row"
-            pad="medium"
-            fill
-          >
-            <Box width="medium">
-              <TextInput onChange={(e)=> this.setState({query:e.target.value})} />
+      <Router>
+        <Grommet plain full>
+          <Box direction="column" fill>
+            <AppBar />
+            <Route exact path="/" component={ProductListPage} />
+            <Route path="/checkout" component={Checkout} />
+            
           </Box>
-            <Box flex>
-              <ProductList  search={this.state.query}/>
-            </Box>
-          </Box>
-        </Box>
-      </Grommet>
+        </Grommet>
+      </Router>
     );
   }
 }
